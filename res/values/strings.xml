@@ -16,4 +16,9 @@
     <string name="upgrade_to_gold">Upgrade to Gold</string>
     <string name="go">Go</string>
     <string name="courtney_henry">Courtney Henry</string>
+    <string name="view_balance">View Balance</string>
+    <string name="deposit">Deposit</string>
+    <string name="withdraw">Withdraw</string>
+    <string name="banking">Banking</string>
+    <string name="my_qr">My QR</string>
 </resources>
