@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">NatCash</string>
+    <string name="background_screen">Background Screen</string>
+    <string name="account_field">Enter your account</string>
+    <string name="login_button">Login</string>
+    <string name="touch_id">Face ID/Finger ID</string>
+    <string name="register">Already have an account?</string>
+    <string name="face_id_button">face_id</string>
+    <string name="sign_up">Sign up</string>
+    <string name="skip_now">Skip now</string>
+    <string name="upgrade">Upgrade</string>
+    <string name="notification">notification</string>
+    <string name="avatar">avatar</string>
+    <string name="notiimg">notiImg</string>
+    <string name="bell">bell</string>
+    <string name="upgrade_to_gold">Upgrade to Gold</string>
+    <string name="go">Go</string>
+    <string name="courtney_henry">Courtney Henry</string>
+</resources>
