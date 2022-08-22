@@ -96,7 +96,7 @@
             android:background="@drawable/round_corner_edit_text"
             android:ems="10"
             android:hint="@string/account_field"
-            android:inputType="textPersonName"
+            android:inputType="textPersonName|phone"
             android:paddingStart="16dp"
             android:textColor="@color/black"
             android:textColorHint="@color/black"
