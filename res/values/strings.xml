@@ -30,4 +30,17 @@
     <string name="transfer_bank">Transfer Bank</string>
     <string name="electricity">Electricity</string>
     <string name="water">Water</string>
+    <string name="hot_deal">Hot Deal</string>
+    <string name="big_voucher">Big Voucher</string>
+    <string name="promotion">Promotion</string>
+    <string name="home">Home</string>
+
+    <string-array name="promotion">
+        <item>Attractive promotion from Lumicash %10</item>
+        <item>NEW promotion x2 Benefit</item>
+        <item>NEW promotion x2 Benefit</item>
+        <item>NEW promotion x2 Benefit</item>
+        <item>NEW promotion x2 Benefit</item>
+    </string-array>
+
 </resources>

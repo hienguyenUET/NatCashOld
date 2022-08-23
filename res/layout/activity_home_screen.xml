@@ -8,42 +8,17 @@
     android:background="@color/white"
     tools:context=".HomeScreen">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/menu"
-        android:layout_width="match_parent"
-        android:layout_height="95dp"
-        android:layout_marginTop="717dp"
-        android:background="@color/teal_700"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
-
-        <Button
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="272dp"
-            android:layout_marginBottom="47dp"
-            android:onClick="logout"
-            android:text="Logout"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
     <ScrollView
         android:id="@+id/scroll_services"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="95dp"
+        android:layout_marginBottom="96dp"
         android:nestedScrollingEnabled="true"
         android:overScrollMode="always"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbars="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/menu"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -87,7 +62,10 @@
                     android:layout_marginTop="51dp"
                     android:layout_marginEnd="59dp"
                     android:layout_marginBottom="275dp"
+                    android:animateLayoutChanges="false"
                     android:background="@drawable/upgrade_button"
+                    android:fitsSystemWindows="false"
+                    android:nestedScrollingEnabled="true"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -372,6 +350,7 @@
                         app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
+                        tools:ignore="RtlHardcoded"
                         tools:targetApi="p" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -391,7 +370,8 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/deposit_btn" />
+                    app:srcCompat="@drawable/deposit_btn"
+                    tools:ignore="ContentDescription" />
 
                 <ImageButton
                     android:id="@+id/withdraw_btn"
@@ -538,6 +518,7 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/button_layout"
                 android:layout_width="match_parent"
                 android:layout_height="437dp">
 
@@ -551,6 +532,7 @@
                     android:layout_marginBottom="198dp"
                     android:background="@drawable/transfer_bank_btn"
                     android:clickable="true"
+                    android:focusable="true"
                     android:padding="10dp"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -569,6 +551,7 @@
                     android:layout_marginBottom="198dp"
                     android:background="@drawable/transfer_color"
                     android:clickable="true"
+                    android:focusable="true"
                     android:padding="10dp"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -586,14 +569,14 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="300dp"
                     android:layout_marginBottom="158dp"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
+                    android:lineHeight="16dp"
                     android:text="@string/transfer_money"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:fontFamily="sans-serif"
                     android:textFontWeight="500"
-                    android:lineHeight="16dp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -611,15 +594,15 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="202dp"
                     android:layout_marginBottom="158dp"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
+                    android:lineHeight="16dp"
                     android:text="@string/transfer_bank"
                     android:textAlignment="center"
-                    android:fontFamily="sans-serif"
-                    android:textFontWeight="500"
-                    android:lineHeight="16dp"
-                    android:textStyle="normal"
                     android:textColor="@color/black"
+                    android:textFontWeight="500"
                     android:textSize="12sp"
+                    android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/transfer_money"
@@ -637,6 +620,7 @@
                     android:layout_marginBottom="198dp"
                     android:background="@drawable/top_up_btn"
                     android:clickable="true"
+                    android:focusable="true"
                     android:padding="10dp"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -653,13 +637,13 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="118dp"
                     android:layout_marginBottom="198dp"
+                    android:fontFamily="sans-serif"
+                    android:lineHeight="16dp"
                     android:text="@string/top_up"
                     android:textColor="@color/black"
-                    android:fontFamily="sans-serif"
                     android:textFontWeight="500"
-                    android:lineHeight="16dp"
-                    android:textStyle="normal"
                     android:textSize="12sp"
+                    android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/transfer_bank"
@@ -693,14 +677,14 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="13dp"
                     android:layout_marginBottom="198dp"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
+                    android:lineHeight="16dp"
                     android:text="@string/data"
                     android:textAlignment="center"
                     android:textColor="@color/black"
-                    android:textSize="12sp"
-                    android:fontFamily="sans-serif"
                     android:textFontWeight="500"
-                    android:lineHeight="16dp"
+                    android:textSize="12sp"
                     android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -719,6 +703,7 @@
                     android:layout_marginBottom="96dp"
                     android:background="@drawable/water_btn"
                     android:clickable="true"
+                    android:focusable="true"
                     android:padding="10dp"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -737,15 +722,15 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="319dp"
                     android:layout_marginBottom="70dp"
-                    android:gravity="center"
-                    android:text="@string/water"
                     android:fontFamily="sans-serif"
-                    android:textFontWeight="500"
+                    android:gravity="center"
                     android:lineHeight="16dp"
-                    android:textStyle="normal"
+                    android:text="@string/water"
                     android:textAlignment="center"
                     android:textColor="@color/black"
+                    android:textFontWeight="500"
                     android:textSize="12sp"
+                    android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
@@ -764,6 +749,7 @@
                     android:layout_marginBottom="96dp"
                     android:background="@drawable/electricity_btn"
                     android:clickable="true"
+                    android:focusable="true"
                     android:padding="10dp"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -781,13 +767,13 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="208dp"
                     android:layout_marginBottom="70dp"
+                    android:fontFamily="sans-serif"
+                    android:lineHeight="16dp"
                     android:text="@string/electricity"
                     android:textColor="@color/black"
-                    android:fontFamily="sans-serif"
                     android:textFontWeight="500"
-                    android:lineHeight="16dp"
-                    android:textStyle="normal"
                     android:textSize="12sp"
+                    android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.53"
@@ -806,6 +792,7 @@
                     android:layout_marginBottom="96dp"
                     android:background="@drawable/bill_payment_btn"
                     android:clickable="true"
+                    android:focusable="true"
                     android:padding="10dp"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -823,15 +810,15 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="102dp"
                     android:layout_marginBottom="70dp"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
+                    android:lineHeight="16dp"
                     android:text="@string/bill_payment"
                     android:textAlignment="center"
-                    android:fontFamily="sans-serif"
-                    android:textFontWeight="500"
-                    android:lineHeight="16dp"
-                    android:textStyle="normal"
                     android:textColor="@color/black"
+                    android:textFontWeight="500"
                     android:textSize="12sp"
+                    android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.57"
@@ -850,6 +837,7 @@
                     android:layout_marginBottom="96dp"
                     android:background="@drawable/service_payment_btn"
                     android:clickable="true"
+                    android:focusable="true"
                     android:padding="10dp"
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -867,15 +855,15 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="5dp"
                     android:layout_marginBottom="96dp"
+                    android:fontFamily="sans-serif"
                     android:gravity="center"
+                    android:lineHeight="16dp"
                     android:text="@string/service_payment"
                     android:textAlignment="center"
-                    android:fontFamily="sans-serif"
-                    android:textFontWeight="500"
-                    android:lineHeight="16dp"
-                    android:textStyle="normal"
                     android:textColor="@color/black"
+                    android:textFontWeight="500"
                     android:textSize="12sp"
+                    android:textStyle="normal"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@+id/bill_payment_tv"
@@ -893,6 +881,7 @@
                     android:layout_marginBottom="50dp"
                     android:background="@drawable/view_all_services_layout"
                     android:clickable="true"
+                    android:focusable="true"
                     android:fontFamily="sans-serif"
                     android:gravity="center"
                     android:lineHeight="16dp"
@@ -907,9 +896,142 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0"
                     tools:targetApi="p" />
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <LinearLayout
+                android:id="@+id/hot_deal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="21dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/hot_deal_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif"
+                    android:lineHeight="24dp"
+                    android:text="@string/hot_deal"
+                    android:textColor="@color/black"
+                    android:textFontWeight="700"
+                    android:textSize="16sp"
+                    android:textStyle="normal"
+                    tools:targetApi="p" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/hot_deal_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/big_voucher"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="21dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/big_voucher_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif"
+                    android:lineHeight="24dp"
+                    android:text="@string/big_voucher"
+                    android:textColor="@color/black"
+                    android:textFontWeight="700"
+                    android:textSize="16sp"
+                    android:textStyle="normal"
+                    tools:targetApi="p" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/big_voucher_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/promotion"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="21dp"
+                android:layout_marginBottom="21dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/promotion_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="sans-serif"
+                    android:lineHeight="24dp"
+                    android:text="@string/promotion"
+                    android:textColor="@color/black"
+                    android:textFontWeight="700"
+                    android:textSize="16sp"
+                    android:textStyle="normal"
+                    tools:targetApi="p" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/promotion_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+            </LinearLayout>
+
         </LinearLayout>
+
+
     </ScrollView>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="717dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:context=".MainActivity">
+
+
+        <com.google.android.material.bottomappbar.BottomAppBar
+            android:id="@+id/bottomAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="95dp"
+            android:layout_gravity="bottom"
+            app:fabCradleMargin="7dp"
+            app:fabCradleRoundedCornerRadius="20dp">
+
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/menu"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/Transparent"
+                app:menu="@menu/home_menu_screen" />
+        </com.google.android.material.bottomappbar.BottomAppBar>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/scan_button"
+            app:layout_anchor="@id/bottomAppBar"
+            tools:ignore="ContentDescription" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
