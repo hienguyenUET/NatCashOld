@@ -6,20 +6,33 @@ import android.content.SharedPreferences
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
-import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.natcash.adapter.PromotionAdapter
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.example.natcash.adapter.PromotionSliderAdapter
+import com.google.android.material.bottomappbar.BottomAppBar
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.smarteist.autoimageslider.IndicatorView.animation.type.IndicatorAnimationType
+import com.smarteist.autoimageslider.SliderAnimations
+import com.smarteist.autoimageslider.SliderView
 
 class HomeScreen : AppCompatActivity() {
     private lateinit var textView: TextView;
     private lateinit var sharedPreferences: SharedPreferences;
+
+
+    private lateinit var slider: SliderView;
+    private val promotionSliderImages = arrayOf(
+        R.drawable.hotdeal_1,
+        R.drawable.hot_deal_2,
+        R.drawable.hot_deal_3,
+    )
+    private lateinit var sliderAdapter: PromotionSliderAdapter
+
 
     private lateinit var hotDealRecyclerView: RecyclerView
     private lateinit var bigVoucherRecyclerView: RecyclerView
@@ -35,11 +48,16 @@ class HomeScreen : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home_screen)
-        getPhoneNumber()
-        this.window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
 
+        super.onCreate(savedInstanceState)
+        supportActionBar!!.hide()
+        setContentView(R.layout.activity_home_screen)
+
+        val botView:BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        botView.background = null
+
+
+        getPhoneNumber()
         // set up view for hot deal section
         hotDealRecyclerView = findViewById(R.id.hot_deal_view)
         hotDealAdapter = PromotionAdapter(this, hotDeal)
@@ -64,8 +82,16 @@ class HomeScreen : AppCompatActivity() {
         promotionRecyclerView.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         setUpPromotion()
-    }
 
+        // set up promotion slider view
+        slider = findViewById(R.id.promotionSlider)
+        sliderAdapter = PromotionSliderAdapter(imageViewList = promotionSliderImages)
+        slider.setSliderAdapter(sliderAdapter)
+        slider.setIndicatorAnimation(IndicatorAnimationType.WORM)
+        slider.setSliderTransformAnimation(SliderAnimations.DEPTHTRANSFORMATION)
+        slider.translationZ = 90F
+        slider.startAutoCycle()
+    }
 
 
     private fun getPhoneNumber() {

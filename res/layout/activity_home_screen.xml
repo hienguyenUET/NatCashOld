@@ -12,21 +12,19 @@
         android:id="@+id/scroll_services"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="96dp"
         android:nestedScrollingEnabled="true"
         android:overScrollMode="always"
         android:scrollbarAlwaysDrawVerticalTrack="true"
         android:scrollbars="vertical"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/userInformation"
@@ -34,9 +32,14 @@
                 android:layout_height="358dp"
                 android:animateLayoutChanges="true"
                 android:background="@drawable/home_screen_layout"
-                android:elevation="10dp"
+                android:elevation="20dp"
                 android:textAlignment="center"
-                app:guidelineUseRtl="false">
+                app:guidelineUseRtl="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
 
                 <ImageView
                     android:id="@+id/avatar"
@@ -517,10 +520,41 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <com.smarteist.autoimageslider.SliderView
+                android:id="@+id/promotionSlider"
+                android:layout_width="343dp"
+                android:layout_height="116dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="840dp"
+                android:background="@drawable/slider"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintCircleRadius="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:sliderAnimationDuration="600"
+                app:sliderAutoCycleDirection="back_and_forth"
+                app:sliderAutoCycleEnabled="true"
+                app:sliderIndicatorAnimationDuration="600"
+                app:sliderIndicatorGravity="left|bottom"
+                app:sliderIndicatorRadius="1dp"
+                app:sliderIndicatorSelectedColor="#FFFFFF"
+                app:sliderIndicatorUnselectedColor="#faedcd"
+                app:sliderScrollTimeInSec="2"
+                app:sliderStartAutoCycle="true" />
+
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/button_layout"
                 android:layout_width="match_parent"
-                android:layout_height="437dp">
+                android:layout_height="437dp"
+                android:layout_marginTop="360dp"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
 
                 <ImageButton
                     android:id="@+id/transfer_bank_btn"
@@ -842,6 +876,7 @@
                     android:scaleType="fitXY"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
                     app:layout_constraintStart_toEndOf="@+id/bill_payment_btn"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.7"
@@ -903,9 +938,13 @@
                 android:id="@+id/hot_deal"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="21dp"
-                android:layout_marginBottom="21dp"
-                android:orientation="vertical">
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/big_voucher"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_layout">
 
                 <TextView
                     android:id="@+id/hot_deal_tv"
@@ -932,9 +971,13 @@
                 android:id="@+id/big_voucher"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="21dp"
-                android:layout_marginBottom="21dp"
-                android:orientation="vertical">
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@id/promotion"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/hot_deal">
 
                 <TextView
                     android:id="@+id/big_voucher_tv"
@@ -962,9 +1005,13 @@
                 android:id="@+id/promotion"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="21dp"
-                android:layout_marginBottom="21dp"
-                android:orientation="vertical">
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="100dp"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/big_voucher">
 
                 <TextView
                     android:id="@+id/promotion_tv"
@@ -987,50 +1034,56 @@
                     android:layout_marginTop="10dp" />
             </LinearLayout>
 
-        </LinearLayout>
+            <!--            <com.smarteist.autoimageslider.SliderView-->
+            <!--                android:id="@+id/sliderView3"-->
+            <!--                android:layout_width="343dp"-->
+            <!--                android:layout_height="116dp"-->
+            <!--                tools:layout_editor_absoluteX="16dp"-->
+            <!--                tools:layout_editor_absoluteY="358dp" />-->
 
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/coordinatorLayout"
+        android:id="@+id/bottomAppBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="717dp"
+        android:layout_height="match_parent"
+        android:background="@color/Transparent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:context=".MainActivity">
+        app:layout_constraintVertical_bias="1.0">
 
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="59dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/scan_button"
+            app:backgroundTint="@color/view_all_services"
+            app:layout_anchor="@id/bottomAppBar"
+            tools:ignore="ContentDescription" />
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottomAppBar"
             android:layout_width="match_parent"
-            android:layout_height="95dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:background="@color/purple_200"
             app:fabCradleMargin="7dp"
-            app:fabCradleRoundedCornerRadius="20dp">
-
+            app:fabCradleRoundedCornerRadius="10dp">
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/menu"
+                android:id="@+id/bottomNavigationView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/Transparent"
+                android:layout_height="70dp"
+                android:background="@android:color/transparent"
                 app:menu="@menu/home_menu_screen" />
+
         </com.google.android.material.bottomappbar.BottomAppBar>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/scan_button"
-            app:layout_anchor="@id/bottomAppBar"
-            tools:ignore="ContentDescription" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
