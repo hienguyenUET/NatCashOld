@@ -16,7 +16,7 @@ class LoginScreen : AppCompatActivity() {
     }
 
     fun login(view: View) {
-        val intent = Intent(this, HomeScreen::class.java)
+        val intent = Intent(this, PinScreen::class.java)
         startActivity(intent)
         val phoneNum:EditText = findViewById(R.id.inputPhoneNumber)
         val phoneNumber:String = phoneNum.text.toString()

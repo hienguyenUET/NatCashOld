@@ -34,6 +34,8 @@
     <string name="big_voucher">Big Voucher</string>
     <string name="promotion">Promotion</string>
     <string name="home">Home</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
 
     <string-array name="promotion">
         <item>Attractive promotion from Lumicash %10</item>
@@ -42,5 +44,21 @@
         <item>NEW promotion x2 Benefit</item>
         <item>NEW promotion x2 Benefit</item>
     </string-array>
+
+    <string-array name="on_boarding_title">
+        <item>Super utility</item>
+        <item>Easy and safe</item>
+        <item>Super promotions</item>
+    </string-array>
+
+    <string-array name="on_boarding_description">
+        <item>Easy to use, high security, support multiple platforms. Payment, transfer money anytime, anywhere !</item>
+        <item>Easy to pay Electricity Bill, Water Supply and Microfinance services</item>
+        <item>Topup, Pincode discount up to 10%. Have chance to get cashback up to 100%. More payment, more saving!</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="get_started">Get Started!</string>
 
 </resources>
