@@ -25,9 +25,11 @@ class PinScreen : AppCompatActivity(), TextWatcher {
     private lateinit var sharedPreferences: SharedPreferences;
     private lateinit var pinCodeLayout: ConstraintLayout;
     private var currentPinNumber: String = String();
-    private val PIN_CODE: String = "1234"
+
+    //    private val PIN_CODE: String = "1234"
     private val pinCode: ArrayList<EditText> = ArrayList(4)
-    private lateinit var nameField:TextView;
+    private lateinit var nameField: TextView;
+    private lateinit var pinCodeInput: String;
 
     companion object {
         const val NUM_OF_DIGITS = 4
@@ -37,6 +39,8 @@ class PinScreen : AppCompatActivity(), TextWatcher {
         supportActionBar!!.hide()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pin_screen)
+
+        sharedPreferences = getSharedPreferences("com.example.natcash", MODE_PRIVATE)
 
         getPhoneNumber()
         pinCodeLayout = findViewById(R.id.pin_code_layout)
@@ -49,11 +53,12 @@ class PinScreen : AppCompatActivity(), TextWatcher {
             }
         }
 
+        // check pin code input field
+
 
     }
 
     private fun getPhoneNumber() {
-        sharedPreferences = getSharedPreferences("com.example.natcash", MODE_PRIVATE)
         val phoneNumber: String? = sharedPreferences.getString("phoneNumber", "Empty")
         nameField = findViewById(R.id.name)
         nameField.text = phoneNumber
@@ -130,8 +135,9 @@ class PinScreen : AppCompatActivity(), TextWatcher {
     }
 
     private fun setDelay(verificationCode: String) {
+        val userPinCode:String = sharedPreferences.getString("pinCode", "Empty!")!!;
         Handler(Looper.getMainLooper()).postDelayed({
-            if (verificationCode == PIN_CODE) {
+            if (verificationCode == userPinCode) {
                 val intent = Intent(this, HomeScreen::class.java)
                 startActivity(intent)
             } else {
@@ -143,4 +149,5 @@ class PinScreen : AppCompatActivity(), TextWatcher {
             }
         }, 2000)
     }
+
 }
